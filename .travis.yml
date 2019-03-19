@@ -2,9 +2,13 @@ notifications:
   email: false
   slack:
     rooms:
-    - secure: KkBXgsbOwH7WXNB6zAaJdHRWEWs5LAI3d/+r6HQBSo0IdNlAKn0/DLgbjsvxmkMZMDF4/owWkFQ4T54Y3znahn9RjQddGrO0isaecOxxk4s26k7O9KAUiNbwn+w2kNIfYXApKlCCYB8pWwccybTxsJL/DY16aJq1ua0xAJoCSmmKMS1OJ/enMCB/fMEzqBug+VSEmrySNBpzRq7uQ2xFiQMf01WEjn5nF1YvYqknlW62xmnxhXXivXnhWm4ecZM38N3THQeW+fEGSQ/wsrR90pO8dTcien0hf0GO7TwcmUY1FyfQlwt1897RQ7ZWwr7GaBDFHgpQC8JPGmmznK9/bu6Z46j6z7FToyB+Llj9608Pm4nbmQN4mlcmQb4EDmr92sRBOm5InBe9JV1wh+ZSd20qJ/fy4CJUw73zB6nNDln5x/xlIGo1Jbc9P/26NOJqDiE13ejPNnGVEV9G148Zeu/260dBuxAql9qq+5Yh8V75hqJLpf5+aGPBq902OtoJ6q8p7JPYfMtJA8ReO6fEx1+O0piLgUF8B6bczQ4f5p8KsLXapI0S3byEVrgU5yoOX7k73LlG6D9puDQej/lzZJIq0rNO8KWT/b9dx/zxB+BEL/fk6SL9RI8asSYEPawJgLno70tFhg0hRaM9wGEpjoat0K/W5SdvEMXdemyTqd8=
+    - secure: 0LNVt+KHXnPhofPtPHYagTQGJyy5HT1Be+vhApSB3filEiXW7JRVYL6Z9nscuE6AbzOFRVdwdhxgvlb41ZtA8dv4w+Wz2gzW7PBvWSW2LYgv/s1fNVifH9+2BJztjLU/f6DcTvCkkft9HgBaASgOZgIG9wjvd/gkTbyz0rhg3iFmhhRl66GDA1zFNwXRUmKMxBKN8eIq8X/P1cpyJOonr6Gx0iJ5DmJSCalnTnWjrVt7BrO1Y2Xf82D0qDMmFWAKIEtrDkFEDiDrewF0pY5xws0LKY06SwlJAfJaM2wZM9T+eWf9lzeZ0rhiw/qb9RY6ofnN8pC5btx2R0HkNah8PlRfWio/Jmz3kqNEoP5dABapeDtGCf2xDv3lti8InVRK5NsBedsu4sE0Kc9ofC4gZdZvnz3kLNfwdTmqlN8Kc/uapxHGkjuhB8SgYIKwzIMD6jiQx7IkHv8EYyAOPbSyDuP6pSXIXzntOQlJCVbGGLe1jnLep6+9urtB0+gcuwrz27aGhztuUfADdsCCF7lyMAnySM9X0oZpdhnTN/4nRfz0yuZZcm++ctn7QlG/Mfjv3IprxA75biejC4mnaPDZMqbjDkYHpx8N/dGhlCmqliT0vWI2fCeZ8zxo+KeoSqAcAhgVWo9vbTc8qkKf1XF220asnVwRKLcOy7pwn+j8HTs=   
     on_success: change # default: always
     on_failure: always # default: always
+    template:
+      - "Repo `%{repository_slug}` *%{result}* build (<%{build_url}|#%{build_number}>) for commit (<%{compare_url}|%{commit}>) on branch `%{branch}`."
+      - "Execution time: *%{duration}*"
+      - "Message: %{message}"
 
 language: generic
 env:

@@ -33,13 +33,14 @@ variable tags {
     createdby    = "Terraform"
   }
 }
-
+# S3 Bucket Var
 variable "bucket_parameters" {
   description = "Bucket parameters for audit and global uses."
   type        = "map"
 
   default = {
     terraform_s3_bucket_name             = "io.sliplab.terraform.uw2"
+    lambda-deployment_bucket_name          = "io.sliplab.lambdadeployment.uw2"
 
 
 
