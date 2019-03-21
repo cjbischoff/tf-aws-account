@@ -2,7 +2,7 @@ notifications:
   email: false
   slack:
     rooms:
-        - pfGkxBzlRL76WzPenVJMjwzm#alerts
+        - christopherjbischoff:pfGkxBzlRL76WzPenVJMjwzm#alerts
     on_success: change # default: always
     on_failure: always # default: always
     template:
