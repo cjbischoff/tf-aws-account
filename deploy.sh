@@ -6,10 +6,10 @@ cd aws_account
 
 terraform --version
 
-terraform init -input=false
+# terraform init -input=false
 
 terraform validate
 
 terraform plan
 
-terraform apply -input=false -auto-approve
+# terraform apply -input=false -auto-approve
