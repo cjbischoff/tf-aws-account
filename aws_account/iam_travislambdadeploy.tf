@@ -12,7 +12,9 @@ resource "aws_iam_policy" "service_travis_lambdadeploy_s3_policy" {
         "s3:GetObject"
       ],
       "Effect": "Allow",
-      "Resource": "s3_bucket_lambda-deploymen_arn/*"
+      "Resource": [
+        "arn:aws:s3:::${var.bucket_parameters["lambda-deployment_bucket_name"]}/*"
+      ]
     }
   ]
 }
