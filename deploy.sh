@@ -4,12 +4,12 @@ set -o errexit -o nounset
 
 cd aws_account
 
-terraform --version
+/usr/bin/terraform --version
 
-# terraform init -input=false
+/usr/bin/terraform init -input=false
 
-terraform validate
+/usr/bin/terraform validate
 
-terraform plan
+/usr/bin/terraform plan
 
-# terraform apply -input=false -auto-approve
+/usr/bin/terraform apply -input=false -auto-approve
