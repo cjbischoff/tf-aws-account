@@ -21,7 +21,7 @@ before_deploy:
  - sudo ln -s /opt/terraform/terraform /usr/bin/terraform
  - rm -f terraform.zip
  - terraform --version
- 
+
 script:
   - cd aws_account
   - which terraform
