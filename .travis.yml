@@ -2,7 +2,7 @@ notifications:
   email: false
   slack:
     rooms:
-    - secure: 0LNVt+KHXnPhofPtPHYagTQGJyy5HT1Be+vhApSB3filEiXW7JRVYL6Z9nscuE6AbzOFRVdwdhxgvlb41ZtA8dv4w+Wz2gzW7PBvWSW2LYgv/s1fNVifH9+2BJztjLU/f6DcTvCkkft9HgBaASgOZgIG9wjvd/gkTbyz0rhg3iFmhhRl66GDA1zFNwXRUmKMxBKN8eIq8X/P1cpyJOonr6Gx0iJ5DmJSCalnTnWjrVt7BrO1Y2Xf82D0qDMmFWAKIEtrDkFEDiDrewF0pY5xws0LKY06SwlJAfJaM2wZM9T+eWf9lzeZ0rhiw/qb9RY6ofnN8pC5btx2R0HkNah8PlRfWio/Jmz3kqNEoP5dABapeDtGCf2xDv3lti8InVRK5NsBedsu4sE0Kc9ofC4gZdZvnz3kLNfwdTmqlN8Kc/uapxHGkjuhB8SgYIKwzIMD6jiQx7IkHv8EYyAOPbSyDuP6pSXIXzntOQlJCVbGGLe1jnLep6+9urtB0+gcuwrz27aGhztuUfADdsCCF7lyMAnySM9X0oZpdhnTN/4nRfz0yuZZcm++ctn7QlG/Mfjv3IprxA75biejC4mnaPDZMqbjDkYHpx8N/dGhlCmqliT0vWI2fCeZ8zxo+KeoSqAcAhgVWo9vbTc8qkKf1XF220asnVwRKLcOy7pwn+j8HTs=
+        - pfGkxBzlRL76WzPenVJMjwzm#alerts
     on_success: change # default: always
     on_failure: always # default: always
     template:
@@ -17,13 +17,10 @@ env:
   - secret_access_key: "$AWS_SECRET_ACCESS_KEY"
 
 before_deploy:
- - curl -fSL "https://releases.hashicorp.com/terraform/0.12.0-beta1/terraform_0.12.0-beta1_linux_amd64.zip" -o terraform.zip
+ - curl -fSL "https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip" -o terraform.zip
  - sudo unzip terraform.zip -d /opt/terraform
  - sudo ln -s /opt/terraform/terraform /usr/bin/terraform
  - rm -f terraform.zip
- - curl -fSL "http://terraform-0.12.0-dev-snapshots.s3-website-us-west-2.amazonaws.com/terraform-provider-aws/1.60.0-dev20190216H00-dev/terraform-provider-aws_1.60.0-dev20190216H00-dev_linux_amd64.zip" -o terraform.zip
- - sudo unzip terraform-provider-aws_1.60.0-dev20190216H00-dev_linux_amd64.zip /opt/terraform
- - sudo ln -s /opt/terraform/terraform-provider-aws_v1.29.0_x4 /user/bin/terraform-provider-aws_v1.29.0_x4
 
 deploy:
 - provider: script
