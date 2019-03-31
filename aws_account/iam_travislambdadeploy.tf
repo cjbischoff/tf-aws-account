@@ -57,7 +57,7 @@ module "sliplab-tf-service_travis_lambdadeploy-group" {
   name       = "sliplab-tf-service_travis_lambdadeploy-group"
   membership = ["service_travis_lambdadeploy"]
 
-  policy_arns = ["arn:aws:iam::aws:policy/tf-service_travis_lambda_s3_deploy_policy",
-    "arn:aws:iam::aws:policy/tf-service_travis_lambdadeploy_lambda_policy",
+  policy_arns = ["arn:aws:iam::191779904557:policy/tf-service_travis_lambda_s3_deploy_policy",
+    "arn:aws:iam::191779904557:policy/tf-service_travis_lambdadeploy_lambda_policy",
   ]
 }
