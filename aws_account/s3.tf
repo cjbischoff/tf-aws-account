@@ -5,8 +5,6 @@ resource "aws_s3_bucket" "terraform-state" {
 
   versioning {
     enabled = true
-
-
   }
 
   lifecycle {
@@ -18,6 +16,7 @@ resource "aws_s3_bucket" "terraform-state" {
     "application", "terraform"
   ))}"
 }
+
 resource "aws_s3_bucket" "lambda-deployment" {
   bucket = "${var.bucket_parameters["lambda-deployment_bucket_name"]}"
 
@@ -25,8 +24,6 @@ resource "aws_s3_bucket" "lambda-deployment" {
 
   versioning {
     enabled = true
-
-
   }
 
   lifecycle {

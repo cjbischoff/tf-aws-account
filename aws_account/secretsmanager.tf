@@ -8,6 +8,7 @@ resource "aws_secretsmanager_secret" "jumpcloud_idp" {
     "application", "jumpcloud"
     ))}"
 }
+
 resource "aws_secretsmanager_secret" "jumpcloud_external_id" {
   name                    = "jumpcloud_external_id"
   description             = "This value is used for JumpCloud external ID."
