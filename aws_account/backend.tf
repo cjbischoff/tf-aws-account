@@ -1,5 +1,3 @@
-
-    
 terraform {
   backend "s3" {
     bucket         = "io.sliplab.terraform.uw2"

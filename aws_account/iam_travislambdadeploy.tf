@@ -1,6 +1,13 @@
+# IAM User
+resource "aws_iam_user" "service_travis_lambdadeploy" {
+  name = "service_travis_lambdadeploy"
+}
+
+# IAM Policy - S3 Access
 resource "aws_iam_policy" "service_travis_lambdadeploy_s3_policy" {
-  name = "tf-service_travis_lambda_s3_deploy_policy"
-  path = "/"
+  name        = "tf-service_travis_lambda_s3_deploy_policy"
+  description = "Travis CI Lambda Deployment Policy - Managed by Terraform"
+  path        = "/"
 
   policy = <<EOF
 {
@@ -21,9 +28,11 @@ resource "aws_iam_policy" "service_travis_lambdadeploy_s3_policy" {
 EOF
 }
 
+# IAM Policy - Lambda Access
 resource "aws_iam_policy" "service_travis_lambdadeploy_lambda_policy" {
-  name = "tf-service_travis_lambdadeploy_lambda_policy"
-  path = "/"
+  name        = "tf-service_travis_lambdadeploy_lambda_policy"
+  description = "Travis CI Lambda Deployment Policy - Managed by Terraform"
+  path        = "/"
 
   policy = <<EOF
 {
@@ -41,4 +50,14 @@ resource "aws_iam_policy" "service_travis_lambdadeploy_lambda_policy" {
   ]
 }
 EOF
+}
+
+module "sliplab-tf-service_travis_lambdadeploy-group" {
+  source     = "git::https://github.com/michalschott/tf-aws-iam-group.git?ref=master"
+  name       = "sliplab-tf-service_travis_lambdadeploy-group"
+  membership = ["service_travis_lambdadeploy"]
+
+  policy_arns = ["arn:aws:iam::aws:policy/tf-service_travis_lambda_s3_deploy_policy",
+    "arn:aws:iam::aws:policy/tf-service_travis_lambdadeploy_lambda_policy",
+  ]
 }
