@@ -26,5 +26,5 @@ module "sliplab-tf-service_travis_tfdeploy-group" {
   source      = "git::https://github.com/michalschott/tf-aws-iam-group.git?ref=master"
   name        = "sliplab-tf-service_travis_tfdeploy-group"
   membership  = ["service_travis_tfdeploy"]
-  policy_arns = ["arn:aws:iam::aws:policy/tf-service_travis_tfdeploy_policy"]
+  policy_arns = ["arn:aws:iam::191779904557:policy/tf-service_travis_tfdeploy_policy"]
 }
