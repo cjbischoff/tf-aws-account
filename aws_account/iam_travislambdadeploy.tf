@@ -44,7 +44,9 @@ resource "aws_iam_policy" "service_travis_lambdadeploy_lambda_policy" {
         "lambda:PublishVersion",
         "lambda:UpdateAlias",
         "lambda:CreateFunction",
-        "lambda:GetFunction"
+        "lambda:GetFunction",
+        "iam:GetRole",
+        "iam:PassRole"
       ],
       "Effect": "Allow",
       "Resource": "*"
