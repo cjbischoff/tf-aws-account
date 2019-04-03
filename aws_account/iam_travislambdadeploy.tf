@@ -42,7 +42,9 @@ resource "aws_iam_policy" "service_travis_lambdadeploy_lambda_policy" {
       "Action": [
         "lambda:UpdateFunctionCode",
         "lambda:PublishVersion",
-        "lambda:UpdateAlias"
+        "lambda:UpdateAlias",
+        "lambda:CreateFunction",
+        "lambda:GetFunction"
       ],
       "Effect": "Allow",
       "Resource": "*"
