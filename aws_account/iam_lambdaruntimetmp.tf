@@ -1,7 +1,8 @@
 // Lambda IAM role
 resource "aws_iam_role" "tf-lambda_basic_execution-role" {
-  name = "tf-lambda_basic_execution-role"
-  path = "/"
+  name        = "tf-lambda_basic_execution-role"
+  path        = "/"
+  description = "Temp Role for Lambda Deployment - Managed by Terraform"
 
   assume_role_policy = <<EOF
 {
@@ -22,23 +23,7 @@ EOF
 
 resource "aws_iam_policy" "tf-lambda_xray_cloudwatch_access-policy" {
   name        = "tf-lambda_xray_cloudwatch_access-policy"
-  description = "Xray and CloudWatch Access for Lambda - Managed by Terraform"
-
-  policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": [
-        "xray:PutTraceSegments",
-        "xray:PutTelemetryRecords"
-      ],
-      "Effect": "Allow",
-      "Resource": "*"
-    }
-  ]
-}
-EOF
+  description = "Xray and CloudWatch Access Policy for Lambda - Managed by Terraform"
 
   policy = <<EOF
 {
@@ -48,34 +33,14 @@ EOF
     "Action": [
       "logs:CreateLogGroup",
       "logs:CreateLogStream",
-      "logs:PutLogEvents"
+      "logs:PutLogEvents",
+      "xray:PutTraceSegments",
+      "xray:PutTelemetryRecords"
     ],
     "Effect": "Allow",
     "Resource": "*"
   }
 ]
-}
-EOF
-}
-
-resource "aws_iam_policy" "tf-lambda_cloudwatch_upload-policy" {
-  name        = "tf-lambda_cloudwatch_upload-policy"
-  description = "CloudWatch Access - Managed by Terraform"
-
-  policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": [
-        "logs:CreateLogGroup",
-        "logs:CreateLogStream",
-        "logs:PutLogEvents"
-      ],
-      "Effect": "Allow",
-      "Resource": "*"
-    }
-  ]
 }
 EOF
 }
